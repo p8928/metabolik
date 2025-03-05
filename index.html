@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metabolik | Metabolism Science Made Simple</title>
+    <style>
+        :root {
+            --primary-orange: #FF4500;
+            --primary-green: #2E714E;
+            --dark-bg: #0A1F0F;
+            --neon-yellow: #CCFF00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+        }
+
+        .top-bar {
+            background: linear-gradient(45deg, #9d2c02, var(--primary-orange), #ff7d4d, orange);
+            padding: 8px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #rsc-000 {
+            font-weight: 900;
+            color: #ffffff;
+            filter: drop-shadow(2px 4px 6px #F00);
+        }
+
+        .top-bar .ebook-cta {
+            background-color: #000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 900;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .social-icons a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .nav-bar {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            max-width: 120px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            margin-right: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            align-content: center;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-links a:hover {
+            color: #CCFF00;
+        }
+
+        .subscribe-btn {
+            background-color: var(--neon-yellow);
+            color: black;
+            padding: 10px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: large;
+            font-weight: 600;
+        }
+
+        .subscribe-btn a {
+            color: var(--dark-bg);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 140px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .email-signup {
+            display: flex;
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .email-signup input {
+            flex: 1;
+            padding: 15px;
+            border-radius: 5px;
+            border: none;
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        .email-signup input::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+            opacity: 1; /* Firefox precisa disso para manter a opacidade consistente */
+        }
+
+        /* Para garantir consistência entre navegadores */
+        .email-signup input::-webkit-input-placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .email-signup input::-moz-placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .email-signup input:-ms-input-placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .email-signup button {
+            background-color: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: larger;
+            font-weight: 600;
+        }
+
+        .blog-section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .blog-images {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .blog-image-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 32%; /* 16:9 Aspect Ratio */
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .blog-image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+
+        .blog-content {
+            position: sticky;
+            top: 30px;
+        }
+
+        .blog-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .blog-content p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .explore-btn {
+            background-color: var(--primary-orange);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .recipes-section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .recipes-section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .recipe-cards {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .recipe-card {
+            background: linear-gradient(45deg, #2e714e, rgb(21 59 41));
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 300px;
+            height: 424px;
+        }
+
+        .recipe-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .recipe-info {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+
+        .rating-star {
+            color: #CCFF00;
+        }
+
+        .recipe-desc {
+            margin-bottom: 40px;
+        }
+
+        .view-recipe {
+            background-color: var(--dark-bg);
+            color: rgb(255, 123, 0);
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .resources-section {
+            background: linear-gradient(135deg, #FF4500, #FF6B4A);
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .book-cover {
+            width: 300px;
+            transform: rotate(-5deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .resources-content {
+            max-width: 500px;
+        }
+
+        .resources-content h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .resources-content h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .resources-content p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .resources-buttons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .get-copy-btn {
+            background-color: #000;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .see-more-btn {
+            color: #000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            padding: 50px 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            
+            .top-bar .ebook-cta {
+                padding: 4px 8px;
+                font-size: 12px;
+            }
+            
+            #rsc-000 {
+                font-size: 12px;
+            }
+
+            .social-icons {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .blog-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .blog-content {
+                position: static;
+            }
+            .recipe-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .resources-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+
+            .book-cover {
+                width: 200px;
+            }
+
+            .resources-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="top-bar">
+        <span id="rsc-000">X HEROES THAT SEEMS LIKE VILLAINS FOR YOUR HEALTH</span>
+        <a href="#" class="ebook-cta">GET YOUR FREE EBOOK NOW</a>
+        <div class="social-icons">
+            <a href="#"><img src="/home/p8928/Pictures/metabolik/site/metabolik_net/src/social_media/[sm]-black/[sm-black]-facebook.png" alt="Metabolik Facebook"></a>
+            <a href="#"><img src="/home/p8928/Pictures/metabolik/site/metabolik_net/src/social_media/[sm]-black/[sm-black]-instagram.png" alt="Metabolik Instagram"></a>
+            <a href="#"><img src="/home/p8928/Pictures/metabolik/site/metabolik_net/src/social_media/[sm]-black/[sm-black]-x.png" alt=""></a>
+            <a href="#"><img src="/home/p8928/Pictures/metabolik/site/metabolik_net/src/social_media/[sm]-black/[sm-black]-tiktok.png" alt="Metabolik TikTok"></a>
+            <a href="#"><img src="/home/p8928/Pictures/metabolik/site/metabolik_net/src/social_media/[sm]-black/[sm-black]-youtube.png" alt="Metabolik YouTube"></a>
+        </div>
+    </div> -->
+
+    <nav class="nav-bar">
+        <a href="#" class="logo"><img src="/home/p8928/Pictures/metabolik/site/metabolik_net/src/logo/[logo-original]-metabolik.png" alt="Metabolik"></a>
+        <div class="nav-links">
+            <a href="#">Resources</a>
+            <a href="#">Blog</a>
+            <a href="#">Recipes</a>
+            <a href="#">Tips</a>
+        </div>
+            <a href="#" class="subscribe-btn">subscribe</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Receive awesome tips to increase your metabolism</h1>
+        <p>Transform your inbox into a valuable source of insightful and accurate information to support your journey towards healthy weight management and weight loss!</p>
+        <div class="email-signup">
+            <input type="email" placeholder="Enter your email">
+            <button>SUBSCRIBE</button>
+        </div>
+    </section>
+
+    <section class="blog-section">
+        <div class="blog-images">
+            <div class="blog-image-container">
+                <img src="/home/p8928/Pictures/metabolik/site/metabolik_net/src/blog/recipes/featured/[rep-post]-salad.jpg" alt="A refreshing detox salad">
+                <div class="blog-image-overlay">
+                    A refreshing detox salad to revitalize your metabolism
+                </div>
+            </div>
+            <div class="blog-image-container">
+                <img src="/home/p8928/Pictures/metabolik/site/metabolik_net/src/blog/recipes/featured/[rep-post]-time.jpg" alt="Find your ideal meal timing">
+                <div class="blog-image-overlay">
+                    Find your ideal meal timing
+                </div>
+            </div>
+            <div class="blog-image-container">
+                <img src="/home/p8928/Pictures/metabolik/site/metabolik_net/src/blog/recipes/featured/[rep-post]-metabolism.jpg" alt="Boost your metabolism">
+                <div class="blog-image-overlay">
+                    5 metabolism-boosting tips your body will love
+                </div>
+            </div>
+            <div class="blog-image-container">
+                <img src="/home/p8928/Pictures/metabolik/site/metabolik_net/src/blog/recipes/featured/[rep-post]-cinnamon.jpg" alt="The power of cinnamon">
+                <div class="blog-image-overlay">
+                    The power of cinnamon for metabolism & weight loss
+                </div>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <h2>An information-packed blog</h2>
+            <p>Improving eating habits doesn't have to mean eating what you don't like or feeling unhappy during a moment that should be enjoyed with joy. That's why we strive to share the best nutritional information and carefully selected delicious recipes so you can discover an even better way to live.</p>
+            <a href="#" class="explore-btn">Explore MetaBlog</a>
+        </div>
+    </section>
+
+    <section class="recipes-section">
+        <h2>Featured recipes</h2>
+        <div class="recipe-cards">
+            <div class="recipe-card">
+                <img src="/home/p8928/Pictures/metabolik/site/metabolik_net/src/blog/tips/featured/[rep-post]-matcha.jpg" alt="Matcha Mint Smoothie" class="recipe-image">
+                <h3>Matcha Mint Smoothie</h3>
+                <div class="recipe-info">
+                    <span>10 minutes • Easy</span>
+                    <span class="rating-star">★★★★★</span>
+                </div>
+                <p class="recipe-desc">Packed with antioxidants, boosts metabolism, enhances focus, and supports heart health. Refreshing and energizing.</p>
+                <a href="#" class="view-recipe">View recipe</a>
+            </div>
+            <!-- Additional recipe cards would go here -->
+            <div class="recipe-card">
+                <img src="/home/p8928/Pictures/metabolik/site/metabolik_net/src/blog/tips/featured/[rep-post]-chicken.jpg" alt="Matcha Mint Smoothie" class="recipe-image">
+                <h3>Matcha Mint Smoothie</h3>
+                <div class="recipe-info">
+                    <span>10 minutes • Easy</span>
+                    <span class="rating-star">★★★★★</span>
+                </div>
+                <p class="recipe-desc">Packed with antioxidants, boosts metabolism, enhances focus, and supports heart health. Refreshing and energizing.</p>
+                <a href="#" class="view-recipe">View recipe</a>
+            </div>
+
+            <div class="recipe-card">
+                <img src="/home/p8928/Pictures/metabolik/site/metabolik_net/src/blog/tips/featured/[rep-post]-shimp.jpg" alt="Matcha Mint Smoothie" class="recipe-image">
+                <h3>Matcha Mint Smoothie</h3>
+                <div class="recipe-info">
+                    <span>10 minutes • Easy</span>
+                    <span class="rating-star">★★★★★</span>
+                </div>
+                <p class="recipe-desc">Packed with antioxidants, boosts metabolism, enhances focus, and supports heart health. Refreshing and energizing.</p>
+                <a href="#" class="view-recipe">View recipe</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="resources-section">
+        <img src="/api/placeholder/300/400" alt="Metabolism Simplified Book Cover" class="book-cover">
+        <div class="resources-content">
+            <h2>Metabolism Simplified</h2>
+            <h3>Easy-to-Understand Nutrient Insights</h3>
+            <p>Ever notice how metabolism information is everywhere? Problem is, most content out there either skims the surface with unreliable facts, or dives so deep into technical jargon it feels like reading a medical textbook! But here's some exciting news: we've created a free guide that strikes the perfect balance between readability and scientific accuracy. Think of it as your friendly translator between complex metabolic science and real-life understanding. Ready to demystify metabolism? Dive in!</p>
+            <div class="resources-buttons">
+                <a href="#" class="get-copy-btn">Get your free copy</a>
+                <a href="#" class="see-more-btn">See more resources ↗</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Metabolik</h3>
+                <p>Transforming health information into accessible knowledge for everyone. Dive into a treasure trove of reliable content, carefully curated to help you build healthy routines and habits. It's all here, ready to launch you into a world of wellness and vitality!</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">MetaBlog</a></li>
+                    <li><a href="#">Recipes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Get exclusive tips and content in your email!</h3>
+                <div class="email-signup">
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2024 Metabolik.net. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
