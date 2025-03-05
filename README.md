@@ -1,2 +1,1 @@
-metabolik.net
-Under Construction
+Metabolik.net is a website dedicated to information and tips focused on nutritional medicine. All published content is based on scientific studies available from the most reliable information sources on the web and is accessible to all users.
