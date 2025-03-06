@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="src/[favicon]m2.png">
+    <title>Thank You | Metabolik</title>
+    <style>
+        :root {
+            --primary-orange: #FF4500;
+            --primary-green: #2E714E;
+            --dark-bg: #0A1F0F;
+            --neon-yellow: #CCFF00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .nav-bar {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            max-width: 120px;
+        }
+
+        .thank-you-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .thank-you-title {
+            font-size: 5rem;
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .welcome-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .thank-you-message {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .contact-message {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .email-link {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        .hear-from-you {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .back-home {
+            margin-top: 50px;
+            background-color: var(--primary-orange);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .back-home:hover {
+            background-color: #E03E00;
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            padding: 30px 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        .copyright {
+            color: var(--primary-orange);
+        }
+
+        @media (max-width: 768px) {
+            .thank-you-title {
+                font-size: 3.5rem;
+            }
+
+            .welcome-title {
+                font-size: 1.8rem;
+            }
+
+            .thank-you-message, .contact-message, .hear-from-you {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .thank-you-title {
+                font-size: 2.5rem;
+            }
+
+            .welcome-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="index.html" class="logo"><img src="src/logo/[logo-original]-metabolik.png" alt="Metabolik"></a>
+    </nav>
+
+    <main class="thank-you-container">
+        <h1 class="thank-you-title">THANK YOU!</h1>
+        <h2 class="welcome-title">Welcome to the Metabolik Community</h2>
+        <p class="thank-you-message">
+            Your inbox is now set to receive valuable insights, evidence-based tips, and practical
+            advice to support your metabolism and health journey.
+        </p>
+        <p class="contact-message">
+            If you have any questions or topics you'd like us to cover, just email us at
+            <a href="mailto:content@metabolik.net" class="email-link">content@metabolik.net</a>.
+        </p>
+        <p class="hear-from-you">We'd love to hear from you!</p>
+        <a href="index.html" class="back-home">Back to Homepage</a>
+    </main>
+
+    <footer>
+        <div class="copyright">
+            © 2024 Metabolik.net. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
