@@ -28,9 +28,8 @@
         <h1>Receive awesome tips to increase your metabolism</h1>
         <p>Transform your inbox into a valuable source of insightful and accurate information to support your journey towards healthy weight management and weight loss!</p>
         <div class="email-signup">
-           <form action="https://uy8l9ofz84.execute-api.us-east-2.amazonaws.com/prod/submit" method="POST" style="display: flex; width: 100%; gap: 10px;">
+            <form id="subscribeForm" style="display: flex; width: 100%; gap: 10px;">
                 <input type="email" name="email" placeholder="Enter your email" required>
-                <input type="hidden" name="_next" value="https://metabolik.net/thanks">
                 <button type="submit">Subscribe</button>
             </form>
         </div>
@@ -48,5 +47,37 @@
         </div>
     </footer>
 
+
+    <script>
+        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new URLSearchParams();
+            formData.append('email', e.target.email.value);
+            formData.append('_next', 'https://metabolik.net/thanks');
+        
+            fetch('https://uy8l9ofz84.execute-api.us-east-2.amazonaws.com/prod/submit', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.headers && data.headers.Location) {
+                    window.location.href = data.headers.Location;
+                } else {
+                    window.location.href = 'https://metabolik.net/thanks';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Fallback redirect
+                window.location.href = 'https://metabolik.net/thanks';
+            });
+        });
+    </script>
+    
 </body>
 </html>
