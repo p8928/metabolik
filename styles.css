@@ -357,7 +357,9 @@
         }
 
         .about-us {
-                padding: 50px;
+                width: 50%;
+                line-height: 1.5;
+}
         }
 
         .footer-section h3 {
@@ -378,7 +380,7 @@
         }
 
         .copyright {
-            margin-top: 5px;
+            margin-top: 20px;
         }
 
         @media (max-width: 768px) {
