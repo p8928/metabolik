@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Denied</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            background-color: #f8f9fa;
+            border-left: 5px solid #dc3545;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 40px;
+        }
+        h1 {
+            color: #dc3545;
+        }
+        .info {
+            background-color: #e2e3e5;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #0d6efd;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Access Denied</h1>
+        <p>We could not grant access to the requested content for the following reasons:</p>
+        <ul>
+            <li>You are accessing from a non-authorized country, or</li>
+            <li>We have detected the use of a VPN or proxy service</li>
+        </ul>
+        
+        <div class="info">
+            <h3>Important information</h3>
+            <p>This website only allows access from specific countries. The use of VPN, proxy, or other services that hide your real location is not allowed.</p>
+            <p>To access our content, please:</p>
+            <ul>
+                <li>Disable any VPN or proxy service you may be using</li>
+                <li>Try accessing again after a few minutes</li>
+            </ul>
+        </div>
+        
+        <a href="/" class="button" onclick="localStorage.removeItem('ipCheckResult'); localStorage.removeItem('ipCheckTimestamp');">Try again</a>
+    </div>
+    
+    <script>
+        // Add code to clear cache if the user clicks "Try again"
+        document.querySelector('.button').addEventListener('click', function() {
+            localStorage.removeItem('ipCheckResult');
+            localStorage.removeItem('ipCheckTimestamp');
+        });
+    </script>
+</body>
+</html>
