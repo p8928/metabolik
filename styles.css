@@ -378,9 +378,7 @@
         }
 
         .copyright {
-            text-align: center;
-            margin-top: 50px;
-            color: var(--primary-orange);
+            margin-top: 5px;
         }
 
         @media (max-width: 768px) {
