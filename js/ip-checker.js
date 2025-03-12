@@ -11,7 +11,7 @@ function verificarAcesso() {
   if (cachedResult && cachedTime && (currentTime - parseInt(cachedTime) < 3600000)) {
     if (cachedResult === 'denied') {
       // Redireciona para página de acesso negado
-      window.location.href = 'acesso-negado.html';
+      window.location.href = 'access-denied.html';
     }
     // Se for 'allowed', não faz nada e deixa a página carregar normalmente
     return;
