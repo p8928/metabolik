@@ -400,7 +400,7 @@
         }
         
         .social-icon:hover {
-            background-color: #00aa6c;
+            background-color: var(--primary-orange);
         }
         
         .newsletter-form {
