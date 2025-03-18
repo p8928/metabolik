@@ -28,7 +28,7 @@
         <h1>Join our nutritional medicine insights: evidence-based solutions delivered to your inbox</h1>
         <p>Transform your inbox into your personal nutritional medicine resource — delivering expert-backed insights on aging well, managing chronic conditions, and optimizing your health at any stage of life. Start making smarter wellness decisions today!</p>
             <div class="email-signup">
-                <form id="subscribeForm" style="display: flex; width: 100%; gap: 10px;">
+                <form id="heroSubscribeForm" style="display: flex; width: 100%; gap: 10px;">
                     <input type="email" name="email" placeholder="Enter your email" required>
                     <button type="submit">Join Free</button>
                 </form>
@@ -78,7 +78,7 @@
             <div class="footer-section">
                 <h3>Newsletter</h3>
                 <div class="email-signup">
-                <form id="subscribeForm" style="display: flex; width: 50%; height: 50%; gap: 10px;">
+                <form id="footerSubscribeForm" style="display: flex; width: 50%; height: 50%; gap: 10px;">
                     <input type="email" name="email" placeholder="Enter your email" required>
                     <button type="submit">Subscribe</button>
                 </form>
@@ -89,7 +89,8 @@
 
 
     <script>
-        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+    function handleSubscribeSubmit(formId) {
+        document.getElementById(formId).addEventListener('submit', function(e) {
             e.preventDefault();
             
             const email = e.target.email.value;
@@ -116,6 +117,9 @@
                 window.location.href = 'https://metabolik.net/thanks';
             });
         });
+    }
+        handleSubscribeSubmit('heroSubscribeForm');
+        handleSubscribeSubmit('footerSubscribeForm');
     </script>
     <script src="js/ip-check.js"></script>
     
