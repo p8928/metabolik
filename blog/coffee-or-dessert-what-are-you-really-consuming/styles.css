@@ -184,6 +184,11 @@ header {
     font-size: 20px;
 }
 
+.text-block p a {
+    text-decoration: underline;
+    color: var(--primary-green);
+}
+
 .text-block p sup {
     font-size: 10px;
     margin-left: 2px;
