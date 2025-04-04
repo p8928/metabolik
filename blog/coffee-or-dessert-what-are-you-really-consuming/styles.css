@@ -216,6 +216,11 @@ header {
     border-radius: 3px;
 }
 
+.embed-vid {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
 .infographic {
     justify-self: center;
     margin-top: 3rem;
